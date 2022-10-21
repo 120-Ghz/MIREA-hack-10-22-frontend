@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="./main.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;1,300&display=swap"
+        rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+</head>
+
+<body>
+    <header>
+        <img src="./test_logo.svg" alt="Logo" class="logo" srcset="">
+        <div class="globallinkwrapper">
+            <a href="#" class="globallink" v-bind:class="{isActive:dashseen }">
+                <div class="globallinkcontainer">
+                    <p>DashBoard</p>
+                </div>
+            </a>
+            <a href="#" class="globallink">
+                <div class="globallinkcontainer">
+                    <p>Курсы</p>
+                </div>
+            </a>
+            <a href="#" class="globallink">
+                <div class="globallinkcontainer">
+                    <p>Форум</p>
+                </div>
+            </a>
+            <a href="#" class="globallink">
+                <div class="globallinkcontainer">
+                    <p>Расписание</p>
+                </div>
+            </a>
+            <a href="#" class="globallink">
+                <div class="globallinkcontainer">
+                    <p>Личный кабинет</p>
+                </div>
+            </a>
+        </div>
+    </header>
+    <div id="calendar">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>
+                        <button v-on:click="decrease">
+                            < </button>
+                    </td>
+                    <td colspan="5"> {{monthes[month]}} {{year}} </td>
+                    <td>
+                        <button v-on:click="increase">></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td v-for="d in day">{{d}}</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="week in calendar()">
+                    <td v-for="(day, index) in week"> {{ day.index }} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="./main.js"></script>
+</body>
+
+</html>
