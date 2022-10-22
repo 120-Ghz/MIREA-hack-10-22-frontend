@@ -1,0 +1,49 @@
+{
+    "lectures": [
+        {
+            "date": "year month day",
+            "id": "String",
+            "name": "String",
+            "description": "String",
+            "courseId": "String"
+        },
+        {
+            "date": "year month day",
+            "id": "String",
+            "name": "String",
+            "description": "String",
+            "courseId": "String"
+        },
+        {
+            "date": "year month day",
+            "id": "String",
+            "name": "String",
+            "description": "String",
+            "courseId": "String"
+        },
+        {
+            "date": "year month day",
+            "id": "String",
+            "name": "String",
+            "description": "String",
+            "courseId": "String"
+        }
+    ],
+    "courses": [
+        {
+            "courseId": "String",
+            "coursename": "String",
+            "coursedescription": "String"
+        },
+        {
+            "courseId": "String",
+            "coursename": "String",
+            "coursedescription": "String"
+        },
+        {
+            "courseId": "String",
+            "coursename": "String",
+            "coursedescription": "String"
+        }
+    ]
+}
