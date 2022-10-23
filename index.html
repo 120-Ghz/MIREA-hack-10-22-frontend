@@ -72,7 +72,7 @@
         </div>
         <div class="todaylectures">
             <div class="currentdate">
-                <p>Сегодня sadasdasd{{ today }} {{monthes[month]}}  </p>
+                <p>Сегодня {{ activeday[0] }} {{rusmonth[activeday[1]-1]}}  </p>
             </div>
             <div class="lectures" v-if="todaylectures.length!=0">
                 <div class="lecture" v-for="lecture in todaylectures" v-bind:key="lecture.id">

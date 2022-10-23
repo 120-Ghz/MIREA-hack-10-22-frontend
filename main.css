@@ -106,3 +106,13 @@ main{
     box-shadow: 0 0 20px rgb(0 0 0 / 10%);
     height: 50%;
 }
+.lecture{
+    width: 80%;
+    border: 1px solid black;
+    border-radius:8px ;
+    height: 100px;
+}
+.lecture:hover .hidendescription { display: block;}
+.hidendescription{
+    display: none;
+}
