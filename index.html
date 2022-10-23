@@ -3,8 +3,7 @@
 <head>
     <link rel="stylesheet" href="./main.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;1,300&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Calendar</title>
 </head>
@@ -13,8 +12,8 @@
     <header>
         <img src="./test_logo.svg" alt="Logo" class="logo" srcset="">
         <div class="globallinkwrapper">
-            <a href="#" class="globallink" v-bind:class="{isActive:dashseen }">
-                <div class="globallinkcontainer">
+            <a href="#" class="globallink " v-bind:class="{isActive:dashseen }">
+                <div class="homelink">
                     <p>DashBoard</p>
                 </div>
             </a>
@@ -46,17 +45,17 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <td>
-                            <button v-on:click="decrease" class="calendarbutton">
+                        <td class="calendarbutton">
+                            <button v-on:click="decrease" >
                                 < </button>
                         </td>
                         <td colspan="5"> {{ rusmonth[month] }} {{ year }}</td>
-                        <td>
-                            <button v-on:click="increase" class="calendarbutton">></button>
+                        <td class="calendarbutton">
+                            <button v-on:click="increase" >></button>
                         </td>
                     </tr>
                     <tr>
-                        <td v-for="d in day" class="column">{{d}}</td>
+                        <td v-for="d in day">{{d}}</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -72,7 +71,7 @@
         </div>
         <div class="todaylectures">
             <div class="currentdate">
-                <p>Сегодня {{ activeday[0] }} {{rusmonth[activeday[1]-1]}}  </p>
+                <p>Лекции на {{`${activeday[0]}.${activeday[1]}.${activeday[2]}`}}  </p>
             </div>
             <div class="lectures" v-if="todaylectures.length!=0">
                 <div class="lecture" v-for="lecture in todaylectures" v-bind:key="lecture.id">
@@ -85,6 +84,9 @@
                 На {{`${activeday[0]}.${activeday[1]}.${activeday[2]}`}} лекций у вас нету
                 <img src="./cat.png" alt="плачуший кот">
             </div>
+        </div>
+        <div class="courses">
+
         </div>
     </main>
     <script src="./main.js"></script>

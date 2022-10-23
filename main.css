@@ -49,7 +49,25 @@ main{
 .globallinkcontainer:hover{
     box-shadow: 0 0 20px rgb(0 0 0 / 20%);
 }
-
+.homelink{
+    opacity: 1;
+    font-size: 19px;
+    margin-left: 35px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 14px;
+    padding-bottom: 17px;
+    padding-left:10px;
+    padding-right: 10px;
+    height: 19px;
+    background-color: #0abf9b;
+    border-radius: 8px;
+    text-align: center;
+    user-select: none;
+}
+.homelink:hover{
+    box-shadow: 0 0 20px rgb(0 0 0 / 20%);
+}
 /*/ ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 .calendar{
@@ -64,10 +82,11 @@ main{
 }
 
 .calendarbutton{
-    max-width: 50%;
-    min-width: 50%;
+    max-width: 100%;
+    min-width: 100%;
 }
 .column{
+    cursor: pointer;
     max-width: 15%;
     min-width: 15%;
 }
@@ -75,7 +94,8 @@ main{
     min-width: 100%;
 }
 .today{
-    color: aqua;
+    color: black;
+    background-color: #0abf9b;
 }
 .haslecture{
     border: 1px solid black;
@@ -109,7 +129,7 @@ main{
 }
 .currentdate{
     font-size: 40px;
-    font-weight: 400;
+    font-weight: 700;
 }
 .lecture{
     padding: 1%;
@@ -118,25 +138,32 @@ main{
     width: 98%;
     overflow-y: hidden;
     font-size: 25px;
-    border: 1px solid black;
+    box-shadow: 0 0 20px rgb(0 0 0 / 8%);
     border-radius:8px ;
     height: 100px;
 }
-.lecture:hover .hidendescription { display: block;}
-.lecture:hover .lecturetime { position: absolute;}
+
 
 .hidendescription{
+    font-weight: 300;
     font-size: 18px;
     word-wrap: break-word;
     margin-left: 30%;
     margin-bottom: 100%;
-    display: none;
+    display: block;
 }
 .lecturetitle{
+    font-weight: 500;
+    font-size: 20px;
+    word-wrap: break-word;
+    max-width: 27%;
     position: absolute;
 }
 .lecturetime{
-    margin-top: 3%;
+    font-weight: 400;
+    font-size: 15px;
+    position: absolute;
+    margin-top: 8%;
 }
 .nolectures img{
     width: 90%;
@@ -144,3 +171,19 @@ main{
     margin-right: 5%;
     margin-top: 25px;
 }
+@media screen and (max-width: 1300px) {
+    .lecture{
+        height: 150px;
+    }
+    .lecturetime{
+        margin-top: 18%;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    .calendar{
+        display: none;
+    }
+    .todaylectures{
+        width: 82%;
+    }
+  }
