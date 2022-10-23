@@ -12,21 +12,57 @@ header{
     width: 100%;
     height: 70px;
     background-color: #04974e;
+    opacity: 1;
+    animation-duration: 1.5s;
+    animation-name: slidein;
 }
 main{
     background-color: rgb(240, 255, 253);
     width: 100%;
     height: 100%;
+    opacity: 1;
+    animation-duration: 1.5s;
+    animation-name: slidein;
+}
+.previewcontainer{
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #04974e;
 }
 
-
-
-/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 .logo{
-    margin-left: 7%;
+    position: relative;
+    left: 9%;
     margin-right: 7%;
     height: 70px;
+    animation-duration: 1s;
+    animation-name: logostart;
 }
+@keyframes logostart {
+    from{
+        position: relative;
+        left: 40%;
+        top: 60%;
+        height: 400px;
+    }to{
+        position: relative;
+        left: 9%;
+        margin-right: 7%;
+        height: 70px;
+    }
+}
+@keyframes slidein {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
 .globallinkwrapper{
     display: flex;
 }
@@ -178,12 +214,16 @@ main{
     .lecturetime{
         margin-top: 18%;
     }
-  }
-  @media screen and (max-width: 900px) {
+}
+@media screen and (max-width: 900px) {
     .calendar{
         display: none;
     }
     .todaylectures{
         width: 82%;
     }
-  }
+    .lecturetime{
+        margin-top: 18%;
+    }
+}
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
