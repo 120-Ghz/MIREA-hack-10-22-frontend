@@ -76,13 +76,14 @@
             </div>
             <div class="lectures" v-if="todaylectures.length!=0">
                 <div class="lecture" v-for="lecture in todaylectures" v-bind:key="lecture.id">
-                    <p>{{lecture.title}}</p>
-                    <div class="hidendescription">{{lecture.description}}</div>
-                    <p>{{lecture.start}}-{{lecture.end}}</p>
+                    <p class="lecturetitle">{{lecture.title}}</p>
+                    <p class="lecturetime">{{lecture.start}}-{{lecture.end}}</p>
+                    <p class="hidendescription">{{lecture.description}}</p>
                 </div>
             </div>
-            <div v-else="">
-                nothing to do    {{activeday}}
+            <div v-else class="nolectures">
+                На {{`${activeday[0]}.${activeday[1]}.${activeday[2]}`}} лекций у вас нету
+                <img src="./cat.png" alt="плачуший кот">
             </div>
         </div>
     </main>
