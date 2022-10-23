@@ -61,13 +61,14 @@ main{
     border-radius: 8px;
     box-shadow: 0 0 20px rgb(0 0 0 / 10%);
 }
-/*
+
 .calendarbutton{
-    width: 100%;
-}*/
+    max-width: 50%;
+    min-width: 50%;
+}
 .column{
-    max-width: 15px;
-    min-width: 15px;
+    max-width: 15%;
+    min-width: 15%;
 }
 .table{
     min-width: 100%;

@@ -1,3 +1,38 @@
+function interpreter(lan) {
+  const rusmonthes = [
+    "Январь",
+    "Февраль",
+    "Март",
+    "АПрель",
+    "Май",
+    "Июнь",
+    "Июлб",
+    "Август",
+    "Сенятбрь",
+    "Октябрь",
+    "Ноябрь",
+    "Декабрь",
+  ];
+  const engmonthes = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  if (lan == "RUS") {
+    return rusmonthes;
+  } else if (lan == "ENG") {
+    return engmonthes;
+  }
+}
 const date = Vue.createApp({
   data() {
     return {
@@ -6,28 +41,32 @@ const date = Vue.createApp({
       year: new Date().getFullYear(),
       today: new Date().getDate(),
       dFirstMonth: "1",
-      day: ["Mn", "Tu", "We", "Th", "Fr", "Sa", "Su"],
-      monthes: [
-        "Январь",
-        "Февраль",
-        "Март",
-        "АПрель",
-        "Май",
-        "Июнь",
-        "Июлб",
-        "Август",
-        "Сенятбрь",
-        "Октябрь",
-        "Ноябрь",
-        "Декабрь",
-      ],
+      monthes: [],
+      rusmonth: interpreter("RUS"),
+      engmonth: interpreter("ENG"),
+      day: ["Пон", "Вт", "Ср", "Чет", "Пят", "Суб", "Вос"],
       date: new Date(),
+      activeday: [
+        new Date().getDate(),
+        new Date().getMonth() + 1,
+        new Date().getFullYear(),
+      ],
       username: "Daddy",
     };
   },
   computed: {
     lectures() {
       return this.data["lectures"];
+    },
+    todaylectures() {
+      const todaylectures = [];
+
+      for (let lecture of this.lectures) {
+        if (lecture["date"] == this.activeday.join(".")) {
+          todaylectures.push(lecture);
+        }
+      }
+      return todaylectures;
     },
     courses() {
       return this.data["courses"];
@@ -63,8 +102,6 @@ const date = Vue.createApp({
           days[0].unshift("");
         }
       }
-      //this.dayChange;
-      //console.log(days)
       return days;
     },
     decrease() {
@@ -81,50 +118,15 @@ const date = Vue.createApp({
         this.year++;
       }
     },
-    dayChange() {
-      if (this.dFirstMonth == 0) {
-        this.day = ["Su", "Mn", "Tu", "We", "Th", "Fr", "Sa"];
-      } else {
-        this.day = ["Mn", "Tu", "We", "Th", "Fr", "Sa", "Su"];
-      }
-    },
     checkToday(i) {
-      let monthes = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ];
       return (
         i == this.date.getDate() &&
-        monthes[this.month] == monthes[this.date.getMonth()] &&
+        this.engmonth[this.month] == this.engmonth[this.date.getMonth()] &&
         this.year == this.date.getFullYear()
       );
     },
     checkLectures(i) {
-      let monthes = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ];
-      let datecheck = `${this.year} ${monthes[this.month]} ${i}`;
+      let datecheck = `${i}.${this.month + 1}.${this.year}`;
       let flag = false;
       for (let lecture of this.lectures) {
         if (lecture["date"] == datecheck) {
@@ -132,15 +134,23 @@ const date = Vue.createApp({
           break;
         }
       }
-      console.log(flag);
       return flag;
+    },
+    getLectures(day, month, year) {
+      let datecheck = ``;
+      for (let lecture of this.lectures) {
+      }
+    },
+    refreshlectures(day, month, year) {
+      console.log(this.activeday.join("."));
+      this.activeday = [day, month, year];
     },
   },
   async created() {
     //const response = await fetch("https://api.npms.io/v2/search?q=vue");
     //const data = await response.json();
     let response =
-      '{"lectures": [{"date": "2022 Nov 1","id": "String","name": "String","description": "String","courseId": "String"},{"date": "2022 Nov 11","id": "String","name": "String","description": "String","courseId": "String"},{"date": "2022 Nov 2","id": "String","name": "String","description": "String","courseId": "String"},{"date": "2022 Nov 3","id": "String","name": "String","description": "String","courseId": "String"}],"courses": [{"courseId": "String","coursename": "String","coursedescription": "String"},{"courseId": "String","coursename": "String","coursedescription": "String"},{"courseId": "String","coursename": "String","coursedescription": "String"}]}';
+      '{"lectures": [{"id": "52f4a23b-c2ed-46be-ac36-2298c2c83b56", "title": "Пределы", "description": ".", "courseId": "18bdcb99-6067-4162-b749-015fba841b2b", "date": "25.10.2022", "start": "17:36", "end": "22:48"},{"id": "52f4a23b-c2ed-46be-ac36-2298c2c83b56", "title": "Пределы", "description": ".", "courseId": "18bdcb99-6067-4162-b749-015fba841b2b", "date": "3.11.2022", "start": "17:36", "end": "22:48"},{"id": "52f4a23b-c2ed-46be-ac36-2298c2c83b56", "title": "Пределы", "description": ".", "courseId": "18bdcb99-6067-4162-b749-015fba841b2b", "date": "29.10.2022", "start": "17:36", "end": "22:48"},{"id": "52f4a23b-c2ed-46be-ac36-2298c2c83b56", "title": "Катя", "description": "пиздец", "courseId": "18bdcb99-6067-4162-b749-015fba841b2b", "date": "23.10.2022", "start": "17:36", "end": "22:48"}], "courses": [{"courseId": "18bdcb99-6067-4162-b749-015fba841b2b", "coursename": "Линейная алгебра", "coursedescription": "Музыка"}]}';
     this.data = JSON.parse(response);
   },
 });

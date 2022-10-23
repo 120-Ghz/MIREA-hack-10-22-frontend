@@ -50,7 +50,7 @@
                             <button v-on:click="decrease" class="calendarbutton">
                                 < </button>
                         </td>
-                        <td colspan="5"> {{monthes[month]}}</td>
+                        <td colspan="5"> {{ rusmonth[month] }} {{ year }}</td>
                         <td>
                             <button v-on:click="increase" class="calendarbutton">></button>
                         </td>
@@ -61,7 +61,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="week in calendar()">
-                        <td v-for="(day, index) in week"  class="column" v-bind:class="{today:day.today,haslecture:day.haslectures}"> {{ day.index }} </td>
+                        <td v-for="(day, index) in week"  class="column" v-bind:class="{today:day.today,haslecture:day.haslectures}" v-on:click="refreshlectures(day.index, month+1, year)"> {{ day.index }} </td>
                     </tr>
                 </tbody>
             </table>
@@ -74,10 +74,15 @@
             <div class="currentdate">
                 <p>Сегодня sadasdasd{{ today }} {{monthes[month]}}  </p>
             </div>
-            <div class="lectures">
-                <div class="lecture">
-
+            <div class="lectures" v-if="todaylectures.length!=0">
+                <div class="lecture" v-for="lecture in todaylectures" v-bind:key="lecture.id">
+                    <p>{{lecture.title}}</p>
+                    <div class="hidendescription">{{lecture.description}}</div>
+                    <p>{{lecture.start}}-{{lecture.end}}</p>
                 </div>
+            </div>
+            <div v-else="">
+                nothing to do    {{activeday}}
             </div>
         </div>
     </main>
