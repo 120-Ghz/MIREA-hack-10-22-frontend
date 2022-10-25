@@ -87,7 +87,13 @@
             </div>
         </div>
         <div class="courses">
-
+            <p>Мои курсы</p>
+            <div v-for="course in courses" class="course" v-bind:key="course.courseId" v-bind:style="{ background-color: courseColor}>
+                {{course.coursename}}
+            </div>
+        </div>
+        <div>
+            
         </div>
     </main>
     <script src="./main.js"></script>
