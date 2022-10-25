@@ -126,13 +126,12 @@ const date = Vue.createApp({
     },
     checkLectures(i) {
       let datecheck = `${i}.${this.month + 1}.${this.year}`;
-      let flag = false;
       for (let lecture of this.lectures) {
         if (lecture["date"] == datecheck) {
           return true;
         }
       }
-      return flag;
+      return false;
     },
     getLectures(day, month, year) {
       let datecheck = ``;
