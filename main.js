@@ -6,7 +6,7 @@ function interpreter(lan) {
     "Апрель",
     "Май",
     "Июнь",
-    "Июлб",
+    "Июль",
     "Август",
     "Сенятбрь",
     "Октябрь",
@@ -29,9 +29,8 @@ function interpreter(lan) {
   ];
   if (lan == "RUS") {
     return rusmonthes;
-  } else if (lan == "ENG") {
-    return engmonthes;
   }
+  return engmonthes;
 }
 const date = Vue.createApp({
   data() {
@@ -130,8 +129,7 @@ const date = Vue.createApp({
       let flag = false;
       for (let lecture of this.lectures) {
         if (lecture["date"] == datecheck) {
-          flag = true;
-          break;
+          return true;
         }
       }
       return flag;
