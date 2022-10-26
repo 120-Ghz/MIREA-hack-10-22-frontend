@@ -42,30 +42,7 @@
     </header>
 
     <main id="dashboard">
-        <div class="calendar">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <td class="calendarbutton">
-                            <button v-on:click="decrease" >
-                                < </button>
-                        </td>
-                        <td colspan="5"> {{ rusmonth[month] }} {{ year }}</td>
-                        <td class="calendarbutton">
-                            <button v-on:click="increase" >></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td v-for="d in day">{{d}}</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="week in calendar()">
-                        <td v-for="(day, index) in week"  class="column" v-bind:class="{today:day.today,haslecture:day.haslectures}" v-on:click="refreshlectures(day.index, month+1, year)"> {{ day.index }} </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        
         <div class="greeting">
             <p class="username">Привет {{ username }}</p>
             <p class="">Добро пожаловать</p>
@@ -88,9 +65,33 @@
         </div>
         <div class="courses">
             <p>Мои курсы</p>
-            <div v-for="course in courses" class="course" v-bind:key="course.courseId" v-bind:style="{ background-color: courseColor}>
+            <div v-for="course in courses" class="course" v-bind:key="course.courseId" v-bind:title="course.coursedescription">
                 {{course.coursename}}
             </div>
+        </div>
+        <div class="calendar">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>
+                            <button v-on:click="decrease" class="calendarbutton">  
+                                <   </button>
+                        </td>
+                        <td colspan="5" class="month"> {{ rusmonth[month] }} {{ year }}</td>
+                        <td>
+                            <button v-on:click="increase" class="calendarbutton">  >  </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td v-for="d in day">{{d}}</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="week in calendar()">
+                        <td v-for="(day, index) in week"  class="column" v-bind:class="{today:day.today,haslecture:day.haslectures}" v-on:click="refreshlectures(day.index, month+1, year)"> {{ day.index }} </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div>
             

@@ -123,31 +123,42 @@ main{
 .calendarbutton{
     max-width: 100%;
     min-width: 100%;
+    appearance: none;
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+    background: #04974e;
+  color: #fff;
+  padding: 3px 6px;
+  font-size: 16px;
+}
+.month{
+    text-align: center;
 }
 .column{
     cursor: pointer;
-    max-width: 15%;
-    min-width: 15%;
+    min-width: 30px;
 }
 .table{
     min-width: 100%;
 }
 .today{
     color: black;
-    background-color: #0abf9b;
+    background-color: #04974e;
+    border-radius: 2px;
 }
 .haslecture{
     border: 1px solid black;
+    border-radius: 2px;
 }
 /*////////////////////////////////////////////////////////////////////////////*/
 
 .greeting{
     position: absolute;
-    width: 20%;
+    width: 40%;
     left: 9%;
     top: 15%;
     font-size: 20px;
-
 }
 .username{
     font-size: 10px;
@@ -223,8 +234,12 @@ main{
     box-shadow: 0 0 20px rgb(0 0 0 / 10%);
 }
 .course{
+    min-height: 40px;
     padding: 10px;
     box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+}
+.courses p{
+    margin-bottom: 20px;
 }
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 @media screen and (max-width: 1300px) {
@@ -234,16 +249,79 @@ main{
     .lecturetime{
         margin-top: 18%;
     }
+    .column{
+        min-width: 25px;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .column{
+        min-width: 20px;
+    }
+    .globallinkwrapper{
+        margin-left:5%;
+    }
+    .globallinkcontainer{
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 17px;
+    }
+    .homelink{
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 17px;
+    }
 }
 @media screen and (max-width: 900px) {
     .calendar{
-        display: none;
+        position: static;
+        margin-top: auto;
+        width: 230px;
+        margin-left: 9%;
+        min-width: 18%;
+        margin-top: 150px;
+    }
+    .column{
+        min-width: 30px;
     }
     .todaylectures{
+        position: relative;
+        top: 15%;
         width: 82%;
+    }
+    .globallinkwrapper{
+        margin-left:3%;
+    }
+    .globallinkcontainer{
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 15px;
+    }
+    .homelink{
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 15px;
+    }
+    .greeting{
+        top: 15%;
     }
     .lecturetime{
         margin-top: 18%;
+    }
+    .courses{
+        display: none;
+    }
+}
+@media screen and (max-width:850px) {
+    .globallinkwrapper{
+        margin-left:1%;
+    }
+    .globallinkcontainer{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .homelink{
+        margin-left: 5px;
+        margin-right: 5px;
     }
 }
 /* /////////////////////////////////////////////////////////////////////////////////////////////////////////////// */

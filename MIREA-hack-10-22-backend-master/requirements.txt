@@ -1,0 +1,5 @@
+peewee
+configparser
+flask
+psycopg2
+flask_cors
