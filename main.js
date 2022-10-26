@@ -6,7 +6,7 @@ function interpreter(lan) {
     "Апрель",
     "Май",
     "Июнь",
-    "Июлб",
+    "Июль",
     "Август",
     "Сенятбрь",
     "Октябрь",
@@ -29,11 +29,14 @@ function interpreter(lan) {
   ];
   if (lan == "RUS") {
     return rusmonthes;
-  } else if (lan == "ENG") {
-    return engmonthes;
   }
+<<<<<<< HEAD
 } // вытащил ненужную дату из эпа так как слишком много данных в одном эпе
 
+=======
+  return engmonthes;
+}
+>>>>>>> 0b8f34be2f2119b5a4e61ac59c64c8504fd6ad62
 const date = Vue.createApp({
   data() {
     return {
@@ -133,14 +136,12 @@ const date = Vue.createApp({
     checkLectures(i) {
       // функция которая отмечает все даты когда будут проходить лекции
       let datecheck = `${i}.${this.month + 1}.${this.year}`;
-      let flag = false;
       for (let lecture of this.lectures) {
         if (lecture["date"] == datecheck) {
-          flag = true;
-          break;
+          return true;
         }
       }
-      return flag;
+      return false;
     },
     refreshlectures(day, month, year) {
       // фунция, которая показывает есть ли лекция на этот день
