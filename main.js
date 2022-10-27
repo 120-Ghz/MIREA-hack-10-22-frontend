@@ -29,12 +29,9 @@ function interpreter(lan) {
   ];
   if (lan == "RUS") {
     return rusmonthes;
+  }else if(lan=="ENF"){
+    return engmonthes;
   }
-<<<<<<< HEAD
-} // вытащил ненужную дату из эпа так как слишком много данных в одном эпе
-
-=======
-  return engmonthes;
 }
 >>>>>>> 0b8f34be2f2119b5a4e61ac59c64c8504fd6ad62
 const date = Vue.createApp({
