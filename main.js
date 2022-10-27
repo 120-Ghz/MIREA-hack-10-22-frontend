@@ -29,7 +29,7 @@ function interpreter(lan) {
   ];
   if (lan == "RUS") {
     return rusmonthes;
-  }else if(lan=="ENF"){
+  }else if(lan=="ENG"){
     return engmonthes;
   }
 }
